@@ -1,0 +1,12 @@
+###
+PUT http://localhost:4003/db/users/
+Content-Type: application/json
+
+{
+
+"password":"reset"
+
+ 
+   
+  
+}

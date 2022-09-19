@@ -1,0 +1,4 @@
+
+###
+
+DELETE http://localhost:4003/db/users/632235a96d8dbbc77a8cdbbd

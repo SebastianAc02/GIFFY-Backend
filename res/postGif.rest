@@ -1,0 +1,29 @@
+###
+
+POST http://localhost:4003/db/gifs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMjIyYmNlNWY5NTJlMTkzM2RhZDJkYiIsInVzZXJuYW1lIjoic2ViYXNnZWNrbyIsImlhdCI6MTY2MzIyMzk0Mn0.4U9HS_6GPBLSu9Fw2D1OXQEZK4vZ9lvdIce4qTPMuR0
+
+{
+     "gif_id":  "new_gif",
+     "url":"ola",
+     "title": "gif.title",
+     "id":"id"
+       
+       
+       
+}
+
+###
+
+
+POST http://localhost:4003/db/gifs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMjIzNWE5NmQ4ZGJiYzc3YThjZGJiZCIsInVzZXJuYW1lIjoic2ViYXNnZWNrbzAxIiwiaWF0IjoxNjYzMTg2MzczfQ.DidcX6M2QHiZw6he856dnbiLctS5dBdGU899MJUNl2E
+
+{
+     "gif_id":  "new_gif"
+       
+       
+}
+

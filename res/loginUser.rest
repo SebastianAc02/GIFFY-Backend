@@ -1,0 +1,34 @@
+
+POST http://localhost:4003/db/login
+Content-Type: application/json
+
+{
+
+"username":"sebasgecko",
+"password":"Sebas1@"
+}
+
+###
+
+POST http://localhost:4003/db/login
+Content-Type: application/json
+
+{
+
+"username":"SebasGecko12",
+"password":"12345"
+}
+###
+//id : 6302c54cde4c0d027c831749
+
+###
+
+POST http://localhost:4003/db/login
+Content-Type: application/json
+
+{
+
+"username":"nuevo",
+"password":"new_password"
+}
+//"username": "nuevo",

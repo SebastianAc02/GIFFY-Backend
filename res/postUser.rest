@@ -1,0 +1,20 @@
+###
+
+POST http://localhost:4003/db/users
+Content-Type: application/json
+
+{
+    "username": "sebasgecko",
+    "password": "Sebas1@"
+}
+
+###
+
+POST http://localhost:4003/db/users
+Content-Type: application/json
+
+{
+    "username": "sebasgecko01",
+    "password": "Sebas1@"
+}
+

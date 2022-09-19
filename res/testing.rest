@@ -1,0 +1,14 @@
+
+
+POST http://localhost:4003/api/testing/reset
+
+
+###
+
+POST http://localhost:4003/db/users
+Content-Type: application/json
+
+{
+      "username":"SebasGecko12", 
+            "password":"12345"
+}

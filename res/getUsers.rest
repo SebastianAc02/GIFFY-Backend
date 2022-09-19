@@ -1,0 +1,11 @@
+
+###
+
+GET http://localhost:4003/db/users
+Content-Type: application/json
+Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMjc3NjUyMGYzNmUwM2QyMmU2NzBlYyIsInVzZXJuYW1lIjoiU2ViYXNHZWNrbzEyIiwiaWF0IjoxNjYzNTMwNTc5fQ.SkIdBlcVeiwJQeiekuk184i_Xfq2HJSRwUrDkxObW54"
+
+
+###
+
+GET http://localhost:4003/db/users/6302c54cde4c0d027c831749
