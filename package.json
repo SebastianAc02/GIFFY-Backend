@@ -4,6 +4,8 @@
   "description": "Backend for giffy app",
   "main": "index.js",
   "scripts": {
+    "deploy":"vercel",
+    "build":"npm install",
     "dev": "NODE_ENV=development nodemon index.js",
     "lint": "eslint .",
     "start": "NODE_ENV=production node index.js",
