@@ -15,6 +15,7 @@ const loginRouter = require('./Controllers/loginRouter.js')
 
 const HandleErrors = require('./middleware/errorHandling')
 const NotFound = require('./middleware/notFound')
+const healthrouter = require('./Controllers/health')
 
 app.use(express.json())
 app.use(cors())
@@ -27,7 +28,7 @@ app.use('/db/users', userRouter)
 app.use('/db/users', userByIdRouter)
 app.use('/db/gifs', gifRouter)
 app.use('/db/login', loginRouter)
-
+app.use('/health', healthrouter)
 if (process.env.NODE_ENV === 'test') {
     const testingRouter = require('./Controllers/testing')
 
