@@ -1,10 +1,10 @@
 ###
 
-POST http://localhost:4003/db/users
+POST https://gif-backend-db.onrender.com/db/users
 Content-Type: application/json
 
 {
-    "username": "sebasgecko",
+    "username": "sebasgecko00",
     "password": "Sebas1@"
 }
 

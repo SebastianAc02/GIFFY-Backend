@@ -7,10 +7,12 @@ const userSchema = new Schema({
     username: {
         type: String,
         unique: true,
-        maxLength: 12,
         minLength: 6
     },
-    passwordHash: String,
+    passwordHash:{
+        type:String
+    },
+
 
     gifs: [{
         type: Schema.Types.ObjectId,

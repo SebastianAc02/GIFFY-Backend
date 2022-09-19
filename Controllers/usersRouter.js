@@ -20,6 +20,10 @@ userRouter.get('/', userExtractor, async (req, res) => {
 userRouter.post('/', async (req, res, next) => {
     const { username, password } = req.body
 
+    if(password.length < 6){
+        return   res.status(409).send('invalid password')
+    }
+
     const passwordHashed = await bcrypt.hash(password, 10)
 
     const newUser = new User({

@@ -11,7 +11,7 @@ const api = supertest(app)
 
 const initialUser = {
     username: 'Sebastiann',
-    password: '12345'
+    password: '123456'
 }
 
 // eslint-disable-next-line no-undef
@@ -43,7 +43,7 @@ describe('logging', () => {
         await Gif.deleteMany({})
         await User.deleteMany({})
 
-        const password = '12345'
+        const password = '123456'
 
         const passwordHashed = await bcrypt.hash(password, 10)
 
@@ -60,7 +60,7 @@ describe('logging', () => {
     test('login', async () => {
         const testUser = {
             username: 'testing',
-            password: '12345'
+            password: '123456'
         }
 
         const ans = await api.post('/db/login').send(testUser).expect(200)
