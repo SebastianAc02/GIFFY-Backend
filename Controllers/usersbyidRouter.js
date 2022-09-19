@@ -1,4 +1,4 @@
-//const userExtractor = require('../middleware/userExtractor')
+// const userExtractor = require('../middleware/userExtractor')
 const User = require('../Schema/Users')
 const ObjectId = require('mongoose').Types.ObjectId
 const bcrypt = require('bcrypt')
@@ -7,13 +7,13 @@ const Gif = require('../Schema/Gif')
 const userByIdRouter = require('express').Router()
 
 userByIdRouter.get('/:id', async (request, res, next) => {
-    let id = request.params.id
+    const id = request.params.id
 
-    //revisar que funcione todo bien 
+    // revisar que funcione todo bien
 
     try {
         const user = await User.findById(id).populate('gifs', {
-            gif_id: 1, url:1, title:1
+            gif_id: 1, url: 1, title: 1
         })
 
         if (user) res.json(user)
@@ -26,14 +26,8 @@ userByIdRouter.get('/:id', async (request, res, next) => {
 userByIdRouter.delete('/:id', async (req, res) => {
     const { id } = req.params
 
-
-
-    
-
-
-
     try {
-        await Gif.deleteMany({User:ObjectId(id)})
+        await Gif.deleteMany({ User: ObjectId(id) })
         await User.findByIdAndDelete(id)
         res.status(204).end()
     } catch (error) {
@@ -44,31 +38,19 @@ userByIdRouter.delete('/:id', async (req, res) => {
 userByIdRouter.put('/:id', async (req, res, next) => {
     const { id } = req.params
 
-   
-
-    
     const { username, password } = req.body
 
-    const  objUpdating = {
+    const objUpdating = {
 
-        username, passwordHash:password
+        username, passwordHash: password
     }
 
-    if(objUpdating.passwordHash )
-    {
-        objUpdating.passwordHash = await  bcrypt.hash(password, 10)
+    if (objUpdating.passwordHash) {
+        objUpdating.passwordHash = await bcrypt.hash(password, 10)
     }
-
-
-
-    
-
-
 
     try {
-       
-
-        const ans = await User.findByIdAndUpdate(id ,objUpdating, { new: true }
+        const ans = await User.findByIdAndUpdate(id, objUpdating, { new: true }
         )
 
         res.json(ans)

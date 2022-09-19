@@ -1,39 +1,36 @@
 
-
-const {Schema, model} = require('mongoose')
+const { Schema, model } = require('mongoose')
 
 const uniqueValidator = require('mongoose-unique-validator')
 
 const gifSchema = new Schema({
 
-    gif_id : {
-        type:String
+    gif_id: {
+        type: String
     },
-    url : String, 
+    url: String,
     title: String,
     User:
         {
-            type:Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'User'
         }
-    
 
 })
 
 gifSchema.set('toJSON', {
-    transform: (document, returnedObj)=>{
+    transform: (document, returnedObj) => {
+    // eslint-disable-next-line no-unused-expressions, no-sequences
         returnedObj.id = returnedObj._id,
 
         delete returnedObj._id,
-        
+
         delete returnedObj.__v
     }
 })
 
 gifSchema.plugin(uniqueValidator)
 
-const Gif = model('Gif',gifSchema)
-
-
+const Gif = model('Gif', gifSchema)
 
 module.exports = Gif

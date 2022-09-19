@@ -1,35 +1,27 @@
 
-
 const jwt = require('jsonwebtoken')
 
 const User = require('../Schema/Users')
 
 const bcrypt = require('bcrypt')
 
-
 const loginRouter = require('express').Router()
 
-loginRouter.post('/', async(req, res)=>{
-
-    const {username, password} = req.body
+loginRouter.post('/', async (req, res) => {
+    const { username, password } = req.body
 
     console.log(req.body)
 
-
-
-    const user = await User.findOne({username: username})
-
+    const user = await User.findOne({ username })
 
     console.log('cypress enter in logn ')
 
-    const passwordCorrect = 
-    user === null?
-        false:
-        await bcrypt.compare(password, user.passwordHash)
+    const passwordCorrect =
+    user === null
+        ? false
+        : await bcrypt.compare(password, user.passwordHash)
 
-
-    if((!user || !passwordCorrect))
-    {
+    if ((!user || !passwordCorrect)) {
         return res.status(401).json({
             error: 'password or username incorrect'
         })
@@ -44,13 +36,10 @@ loginRouter.post('/', async(req, res)=>{
     const token = jwt.sign(userobj, process.env.SECRET)
 
     res.send({
-    
+
         username: user.username,
-        token: token
+        token
     })
-
-
 })
 
 module.exports = loginRouter
-

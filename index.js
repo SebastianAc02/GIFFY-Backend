@@ -1,6 +1,8 @@
 
 require('./DB/Mongo')
 
+const mongoose = require('mongoose')
+
 const express = require('express')
 const cors = require('cors')
 
@@ -11,44 +13,40 @@ const userByIdRouter = require('./Controllers/usersbyidRouter')
 const gifRouter = require('./Controllers/gifRouter')
 const loginRouter = require('./Controllers/loginRouter.js')
 
-
-
 const HandleErrors = require('./middleware/errorHandling')
 const NotFound = require('./middleware/notFound')
 
-app.use(express.json()) 
+app.use(express.json())
 app.use(cors())
 
- 
-app.get('/',(req, res)=>{
-
+app.get('/', (req, res) => {
     res.send('<h1>DATABASE FOR GIFFY APP BY Sebastian Acosta </h1>')
 })
-
 
 app.use('/db/users', userRouter)
 app.use('/db/users', userByIdRouter)
 app.use('/db/gifs', gifRouter)
 app.use('/db/login', loginRouter)
 
-
-
-
-if(process.env.NODE_ENV === 'test')
-{
+if (process.env.NODE_ENV === 'test') {
     const testingRouter = require('./Controllers/testing')
 
-    app.use('/api/testing',testingRouter )
+    app.use('/api/testing', testingRouter)
 }
 
 app.use(HandleErrors)
 app.use(NotFound)
 
-const PORT = process.env.PORT ||4003
+const PORT = process.env.PORT || 4003
 
-const server = app.listen(PORT, ()=>{
+const server = app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
 
-module.exports = {app, server}
+process.on('uncaughtException', (error) => {
+    console.error(error)
+    console.log('Closing database after an Uncaught Exception')
+    mongoose.disconnect()
+})
 
+module.exports = { app, server }
